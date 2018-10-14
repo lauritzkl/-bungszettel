@@ -1,0 +1,98 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{uebung}[2015/10/14 Definitionen fuer Uebungen]
+
+
+%%
+%%  Pakete
+%%
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{ngerman}
+%\RequirePackage{times,mathptm}
+\ifx\pdfoutput\undefined
+  \RequirePackage{graphicx}
+  \RequirePackage{hyperref}
+\else
+  %\RequirePackage[pdftex,\bookmarksnumbered,color links=true]{hyperref}
+  \RequirePackage{hyperref}
+  \RequirePackage{graphicx}
+  \RequirePackage{type1cm}
+  \RequirePackage{pdfpages}
+  \ifnum\pdftexversion>109
+  \pdfoptionpdfminorversion 3%
+  \fi
+
+\fi
+\RequirePackage{wrapfig}
+
+
+%%
+%%  Optionen
+%%
+\DeclareOption{loesung}{\def\loesung{\MITloesung}}
+\DeclareOption{loesungen}{\def\loesung{\MITloesung}}
+
+
+%%
+%%  Makros
+%%
+\newcommand{\OHNEloesung}[1]{}
+\newcommand{\MITloesung}[1]{\vspace*{1.5em}\textbf{Musterlösung:}\\ #1 \clearpage}
+\def\loesung{\OHNEloesung}
+\newcommand{\uebungstitel}[1]{\def\UebungsTitel{#1}}
+\renewcommand{\thesection}{\large Aufgabe \arabic{section}:}
+\newcounter{uebung}
+\newcounter{punkte}
+\newcommand{\aufgabe}[1]{\renewcommand{\thesection}{\large Aufgabe \arabic{section}:}\section[]{\large #1\hfill~\arabic{punkte} Punkte}}
+\newcommand{\task}[2]{\setcounter{punkte}{#2}\input{aufgaben/#1/task.tex}}
+\newcommand{\uebung}[2]{%
+\clearpage
+\ifx\pdfoutput\undefined
+\else
+\pdfbookmark[0]{\arabic{uebung}. "Ubung}{uebung.\arabic{uebung}}%
+\fi
+\noindent{%\begin{center}
+{\vspace*{1em}\LARGE\bf{Theoretische Physik I} \hfill WiSe 2018/19\\[-0.5em] \arabic{uebung}. \"Ubungsblatt \\}
+	\begin{tabular}{l l}
+	\ \\
+	\textbf{Ausgabe:}&#1\\
+	\textbf{Abgabe:}& #2
+	\end{tabular}
+\hfill
+	\begin{tabular}{r}
+	\hfill \href{mailto:ute.loew@tu-dortmund.de}{Ute~Löw}
+	\end{tabular}
+% \end{center}
+\vspace*{1em}
+\setlength{\textwidth}{170.0mm}
+%\hrule
+\hspace*{-0.65cm}
+\begin{tabular}{c}
+		\hline
+		\hfill\hspace{17.0cm}
+	\end{tabular}
+%\hline
+		%\hfill\hspace{17.5cm}
+\vspace*{-12pt}
+}
+}
+
+
+%%
+%%  Seiten-Einrichtung
+%%
+\headheight0cm
+\headsep0cm
+\setlength{\oddsidemargin}{-3mm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\topmargin}{-10.0mm}
+\setlength{\textwidth}{164.00mm}
+\setlength{\textheight}{260.0mm}
+\setlength{\parindent}{0pt}
+
+\setlength{\unitlength}{1mm}
+
+
+%%
+%%  Werte die beim einbinden übergebenen Optionen aus
+%%
+\ProcessOptions

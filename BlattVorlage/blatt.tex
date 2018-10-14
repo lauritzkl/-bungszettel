@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vorlage für Übungsblätter des
+% Lehrstuhls für Theoretische Physik I
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ----------------- %%
+%%     Dokument      %%
+%% ----------------- %%
+% !TeX document-id = {f1565f80-4f14-4892-b1e7-460d05a69803}
+\documentclass[a4paper,11pt]{article}
+\usepackage{ngerman}
+\usepackage{bbm,amsmath}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{textcomp}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{dsfont}
+\usepackage{type1cm}
+\usepackage{nicefrac}
+\usepackage{braket}
+\usepackage{physics}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false,
+            pdfcreator=pdf-LaTeX}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{tikz}
+\usepackage{siunitx}
+\sisetup{number-unit-product = \text{ }}
+\sisetup{exponent-product = \cdot, output-product = \cdot}
+
+%%  Übungs-Paket einbinden, Makefile entscheidet darüber, ob mit/ohne Lsgn.
+\ifdefined\issolution
+  \usepackage[loesung]{uebung}
+  \newcommand{\pkt}[1]{\textbf{#1\,P.}}
+\else
+  \usepackage{uebung}
+  \newcommand{\pkt}[1]{}
+\fi
+
+%%  Makros
+\newcommand {\e}  {\mathrm{e}}
+\newcommand {\im} {\mathrm{i}}
+\newcommand {\ud} {\mathrm{d}}
+\DeclareMathOperator{\dx}{d\!}
+\newcommand{\dpnc}[2]{\ensuremath{\frac{\partial\,#1}{\partial\,#2}}}
+
+%% ----------------- %%
+%%      Header       %%
+%% ----------------- %%
+\setcounter{uebung}{0}	% Nummer des Übungsblatts
+\setcounter{section}{-1}	% Nummer der letzten Aufgabe (*VORIGES* ÜB)
+\setcounter{punkte}{5}	% Default für Punktezahl
+
+% Zum Ändern der Punkte für eine einzelne Aufgabe auf n Punkte vorher
+% \setcount{punkte}{n} und danach \setcounter{punkte}{5}
+
+\begin{document}
+\uebung{
+% Ausgabedatum
+XX.XX.2018
+}{
+% Abgabedatum
+XX.XX.2018, 12 Uhr
+} \noindent
+
+%% ----------------- %%
+%%     Aufgaben      %%
+%% ----------------- %%
+
+% Aufgaben aus dem Contents Ordner importieren
+\input{./Contents/Aufgabe_1.tex}
+\input{./Contents/Aufgabe_2.tex}
+\input{./Contents/Aufgabe_3.tex}
+\input{./Contents/Aufgabe_4.tex}
+
+\end{document}
