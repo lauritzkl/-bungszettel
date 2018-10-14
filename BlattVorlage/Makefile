@@ -6,7 +6,7 @@ all: build/blatt.pdf clean
 # Anpassbare Optionen:
 #
 # Präfix der PDF-Dokumente. Struktur ist: Präfix_BlattXY.pdf
-Prefix = Physik2_Ss2018
+Prefix = TP1_WS1819
 ############################################################
 
 # Automatisch ermittelter Name
